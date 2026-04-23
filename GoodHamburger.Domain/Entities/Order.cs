@@ -1,11 +1,12 @@
 ﻿using GoodHamburger.Domain.Enums;
+using GoodHamburger.Domain.Exceptions;
 
 namespace GoodHamburger.Domain.Entities;
 
 public class Order
 {
-    public Guid Id { get; private set; } = Guid.NewGuid();
-    public List<OrderItem> Items { get; private set; } = new();
+    public Guid Id { get; private set; } = Guid.CreateVersion7();
+    public List<OrderItem> Items { get; private set; } = [];
 
     public decimal Subtotal { get; private set; }
     public decimal Discount { get; private set; }
@@ -14,7 +15,7 @@ public class Order
     public void AddItem(OrderItem item)
     {
         if (Items.Any(i => i.Type == item.Type))
-            throw new Exception($"Pedido já possui um item do tipo {item.Type}");
+            throw new DuplicateItemException(item.Type.ToString());
 
         Items.Add(item);
     }

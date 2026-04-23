@@ -3,18 +3,21 @@ using GoodHamburger.Application.Interfaces;
 
 namespace GoodHamburger.Application.UseCases;
 
-public class GetOrders(IOrderRepository repository)
+public class GetOrderByIdUseCase(IOrderRepository repository)
 {
     private readonly IOrderRepository _repository = repository;
-    public async Task<List<OrderResponse>> Execute()
+
+    public async Task<OrderResponse> Execute(Guid id)
     {
-        var orders = await _repository.GetAllAsync();
-        return orders.Select(order => new OrderResponse
+        var order = await _repository.GetByIdAsync(id)
+            ?? throw new Exception("Pedido não encontrado");
+        
+        return new OrderResponse
         {
             Id = order.Id,
             Subtotal = order.Subtotal,
             Discount = order.Discount,
             Total = order.Total
-        }).ToList();
+        };
     }
 }

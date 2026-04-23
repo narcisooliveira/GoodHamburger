@@ -2,7 +2,7 @@
 
 namespace GoodHamburger.Application.UseCases;
 
-public class DeleteOrderById(
+public class DeleteOrderByIdUseCase(
     IOrderRepository repository,
     IUnitOfWork unitOfWork)
 {

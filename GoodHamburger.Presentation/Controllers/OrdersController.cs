@@ -6,15 +6,15 @@ namespace GoodHamburger.Presentation.Controllers
     [ApiController]
     [Route("api/orders")]
     public class OrdersController(
-        CreateOrder createUseCase,
-        GetOrderById getOrderById,
-        GetOrders getOrders,
-        DeleteOrderById deleteOrderById) : ControllerBase
+        CreateOrderUseCase createUseCase,
+        GetOrderByIdUseCase getOrderById,
+        GetOrdersUseCase getOrders,
+        DeleteOrderByIdUseCase deleteOrderById) : ControllerBase
     {
-        private readonly CreateOrder _createOrder = createUseCase;
-        private readonly GetOrderById _getOrderById = getOrderById;
-        private readonly GetOrders _getOrders = getOrders;
-        private readonly DeleteOrderById _deleteOrderById = deleteOrderById;
+        private readonly CreateOrderUseCase _createOrder = createUseCase;
+        private readonly GetOrderByIdUseCase _getOrderById = getOrderById;
+        private readonly GetOrdersUseCase _getOrders = getOrders;
+        private readonly DeleteOrderByIdUseCase _deleteOrderById = deleteOrderById;
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateOrderRequest request)

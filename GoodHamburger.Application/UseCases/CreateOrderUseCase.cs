@@ -2,12 +2,11 @@
 using GoodHamburger.Application.Interfaces;
 using GoodHamburger.Domain.Entities;
 using GoodHamburger.Domain.Enums;
-using GoodHamburger.Domain.Exceptions;
 using GoodHamburger.Domain.Helpers;
 
 namespace GoodHamburger.Application.UseCases;
 
-public class CreateOrder(
+public class CreateOrderUseCase(
     IOrderRepository repository,
     IUnitOfWork unitOfWork)
 {
@@ -24,9 +23,6 @@ public class CreateOrder(
         foreach (var code in request.Items)
         {
             var (type, price) = MenuHelper.GetItem(code);
-
-            if (order.Items.Any(i => i.Type == type))
-                throw new DuplicateItemException(type.ToString());
 
             order.AddItem(new OrderItem(type, code, price));
         }

@@ -1,0 +1,47 @@
+﻿@page "/orders/create"
+@using GoodHamburger.Application.UseCases
+@using GoodHamburger.Domain.Enums
+@inject CreateOrderUseCase createOrderUseCase
+
+<h3>Novo Pedido</h3>
+
+<select @bind="selectedSandwich">
+    <option value="">Selecione</option>
+    <option value="X_BURGER">X Burger</option>
+    <option value="X_EGG">X Egg</option>
+    <option value="X_BACON">X Bacon</option>
+</select>
+
+<button @onclick="Create">Criar</button>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <p>@message</p>
+}
+
+@code {
+    string selectedSandwich;
+    string message;
+
+    async Task Create()
+    {
+        try
+        {
+            var request = new CreateOrderRequest
+            {
+                Items = new List<MenuCode>
+                {
+                    Enum.Parse<MenuCode>(selectedSandwich)
+                }
+            };
+
+            var order = await createOrderUseCase.Execute(request);
+
+            message = $"Pedido criado: {order.Total:C}";
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+    }
+}
