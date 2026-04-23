@@ -15,16 +15,6 @@ O projeto foi estruturado seguindo os princípios de **Clean Architecture**, com
 
 ---
 
-## 🔄 Estrutura da Solução
-GoodHamburger.sln
-├── GoodHamburger.Domain
-├── GoodHamburger.Application
-├── GoodHamburger.Infrastructure
-├── GoodHamburger.API
-└── GoodHamburger.Tests
-
----
-
 ## 🚀 Tecnologias Utilizadas
 
 - .NET / ASP.NET Core   
