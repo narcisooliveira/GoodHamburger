@@ -1,5 +1,4 @@
-﻿using GoodHamburger.Application.Interfaces;
-using GoodHamburger.Application.UseCases;
+﻿using GoodHamburger.Application.UseCases;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GoodHamburger.Application;

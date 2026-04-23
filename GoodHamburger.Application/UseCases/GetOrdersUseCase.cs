@@ -6,6 +6,7 @@ namespace GoodHamburger.Application.UseCases;
 public class GetOrdersUseCase(IOrderRepository repository)
 {
     private readonly IOrderRepository _repository = repository;
+
     public async Task<List<OrderResponse>> Execute()
     {
         var orders = await _repository.GetAllAsync();

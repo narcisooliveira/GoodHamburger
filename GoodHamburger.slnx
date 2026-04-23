@@ -2,6 +2,6 @@
   <Project Path="GoodHamburger.Application/GoodHamburger.Application.csproj" Id="72c07c8b-263c-4db3-ab08-eeedaf242a49" />
   <Project Path="GoodHamburger.Domain/GoodHamburger.Domain.csproj" Id="7857ebd6-4d42-454a-a6fe-859afeb5d154" />
   <Project Path="GoodHamburger.Infrastructure/GoodHamburger.Infrastructure.csproj" Id="a84234de-f3d2-4d2b-bc73-3f58a045aadd" />
-  <Project Path="GoodHamburger.Presentation/GoodHamburger.Presentation.csproj" />
   <Project Path="GoodHamburger.Tests/GoodHamburger.Tests.csproj" Id="315e40ea-078d-4acb-ba72-4724703885a4" />
+  <Project Path="GoodHamburguer.API/GoodHamburguer.API.csproj" Id="6aeb5217-a1f8-4421-b639-1f7162a122d6" />
 </Solution>
