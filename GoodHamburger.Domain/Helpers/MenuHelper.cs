@@ -16,4 +16,22 @@ public static class MenuHelper
             _ => throw new Exception("Item inválido")
         };
     }
+
+    public static object GetMenu() => new
+    {
+        Sandwiches = new[]
+        {
+            new { Code = MenuCode.X_BURGER, Name = "X Burger", Price = 5.00m },
+            new { Code = MenuCode.X_EGG, Name = "X Egg", Price = 4.50m },
+            new { Code = MenuCode.X_BACON, Name = "X Bacon", Price = 7.00m }
+        },
+        Sides = new[]
+        {
+            new { Code = MenuCode.FRIES, Name = "Batata frita", Price = 2.00m }
+        },
+        Drinks = new[]
+        {
+            new { Code = MenuCode.SODA, Name = "Refrigerante", Price = 2.50m }
+        }
+    };
 }
