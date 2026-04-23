@@ -14,7 +14,7 @@ public static class DependencyInjectionExtension
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<AppDbContext>(opt =>
-            opt.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+            opt.UseSqlServer(connectionString));
 
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
